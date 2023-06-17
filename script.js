@@ -66,32 +66,37 @@ function generatePassword() {
   var lowerArray= "abcdefghijklmnopqrstuvwxyz"
   var upperArray= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var specialArray= "@#$%^&*()_+=~|{}[]<>?/-"
+  var passwordchars=""
+
+  if (lowerCase===true){
+    passwordchars+=lowerArray
+  }
+  if (upperCase===true){
+    passwordchars+=upperArray
+  }
+  if (numbers===true){
+    passwordchars+=numberArray
+  }
+  if (specialCharcters===true){
+    passwordchars+=specialArray
+  }
+  console.log(passwordchars)
+
 
   var trialPassword = "";
-  trialPassword+= numberArray[Math.floor(Math.random()*numberArray.length)];
-  trialPassword+= lowerArray[Math.floor(Math.random()*lowerArray.length)];
-  trialPassword+= upperArray[Math.floor(Math.random()*upperArray.length)];
-  trialPassword+= specialArray[Math.floor(Math.random()*specialArray.length)];
+  // trialPassword= numberArray[Math.floor(Math.random()*numberArray.length)];
+  // trialPassword= lowerArray[Math.floor(Math.random()*lowerArray.length)];
+  // trialPassword= upperArray[Math.floor(Math.random()*upperArray.length)];
+  // trialPassword= specialArray[Math.floor(Math.random()*specialArray.length)];
 
   while(char> trialPassword.length){
-    trialPassword+= upperArray[Math.floor(Math.random()*upperArray.length)]
+    trialPassword+= passwordchars[Math.floor(Math.random()*passwordchars.length)]
   }
   console.log(trialPassword)
   console.log(trialPassword.length)
 
-
-  // var numberPassword= numberArray[Math.floor(Math.random()*numberArray.length)]
-  // console.log(numberPassword)
   
-  // var ppppp
-  // for (var i=0; i<=char; i++){
-  //   var trial=[Math.floor(Math.random()*numberArray.length)]
-  //   ppppp+=numberArray.substring(trial,trial+1)
-  // };
-  // console.log("trial is " + ppppp)
-
-  
-  return char;
+  return trialPassword;
 
 }
 
