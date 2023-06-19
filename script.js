@@ -8,23 +8,16 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Imput validated and at least one character type selected
-// password generated and matches selected criteria
-// passowrd is displayed
-
+// function to prompt for password length
 function generatePassword() {
   var char = window.prompt(
     "How many characters needed in password?\nEnter number between 8-128"
   );
-  console.log(char);
   char = parseInt(char);
-  console.log(char);
 
-  // doesnt cancel out runs loop code 
   if (char !== null) {
     while (char !== null && (char < 8 || char >= 129 || isNaN(char))) {
       char = window.prompt("Please enter valid number between 8-128");
-      console.log(char);
     }
   }
 
@@ -33,6 +26,7 @@ function generatePassword() {
   var numbers;
   var specialCharcters;
 
+  // function to prompt for password criteria
   function confirmPrompts() {
     lowerCase = window.confirm("Do you want to include lowercase letters?");
     upperCase = window.confirm("Do you want to include uppercase letters?");
@@ -46,6 +40,7 @@ function generatePassword() {
     confirmPrompts();
   }
 
+  // Check that at least one criteria is selected 
   while (
     lowerCase === false &&
     upperCase === false &&
@@ -56,58 +51,34 @@ function generatePassword() {
     confirmPrompts();
   }
 
-  console.log(lowerCase);
-  console.log(upperCase);
-  console.log(numbers);
-  console.log(specialCharcters);
-
-
-  var numberArray = "1234567890";
+  // Input strings for password
+  var allnumbers = "1234567890";
   var lowerArray= "abcdefghijklmnopqrstuvwxyz"
   var upperArray= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var specialArray= "@#$%^&*()_+=~|{}[]<>?/-"
-  var passwordchars=""
+  var passwordCriteria=""
 
   if (lowerCase===true){
-    passwordchars+=lowerArray
+    passwordCriteria+=lowerArray
   }
   if (upperCase===true){
-    passwordchars+=upperArray
+    passwordCriteria+=upperArray
   }
   if (numbers===true){
-    passwordchars+=numberArray
+    passwordCriteria+=allnumbers
   }
   if (specialCharcters===true){
-    passwordchars+=specialArray
+    passwordCriteria+=specialArray
   }
-  console.log(passwordchars)
-
-
-  var trialPassword = "";
-  // trialPassword= numberArray[Math.floor(Math.random()*numberArray.length)];
-  // trialPassword= lowerArray[Math.floor(Math.random()*lowerArray.length)];
-  // trialPassword= upperArray[Math.floor(Math.random()*upperArray.length)];
-  // trialPassword= specialArray[Math.floor(Math.random()*specialArray.length)];
-
-  while(char> trialPassword.length){
-    trialPassword+= passwordchars[Math.floor(Math.random()*passwordchars.length)]
-  }
-  console.log(trialPassword)
-  console.log(trialPassword.length)
-
   
-  return trialPassword;
+  // Randomly select value from passwordCriteria 
+  var userPassword = "";
+  while(char> userPassword.length){
+    userPassword+= passwordCriteria[Math.floor(Math.random()*passwordCriteria.length)]
+  }
 
+  return userPassword;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// Resources:
-// https://www.w3schools.com/js/js_validation_api.asp
-// https://stackoverflow.com/questions/12864582/javascript-prompt-cancel-button-to-terminate-the-function
-
-
-
-// https://www.youtube.com/watch?v=Xrsb9SiF3a8 best youtube
-// https://www.kirupa.com/html5/picking_random_item_from_array.htm 
