@@ -27,4 +27,4 @@ Following sites were used for guidance in creating this application:
 - https://www.youtube.com/watch?v=Xrsb9SiF3a8 
 - https://www.kirupa.com/html5/picking_random_item_from_array.htm 
 
-## [Website Link](https://l-lavelle.github.io/Professional-Portfolio/)
+## [Website Link](https://l-lavelle.github.io/Password-Generator/)
